@@ -1,0 +1,376 @@
+*{
+    margin:0;
+    padding: 0;
+
+}
+body{
+  overflow-x: hidden;
+}
+.logo
+{
+    position: absolute;
+    /* padding-left:30px; */
+
+
+}
+.logo img{
+    width:158px;
+    background-size: cover;
+    background-attachment: fixed;
+    /* border:1px solid beige; */
+}
+.nav{
+    height: 80px;
+    text-align: right; 
+    background-color    : #3ca0e7;
+    /* padding-top: 25px; */
+    padding:30px;
+    padding: 40px;
+    /* background: linear-gradient(344deg, rgba(0,233,255,1) 0%, rgba(201,215,216,1) 0%, rgba(93,226,241,1) 100%); */
+    background-repeat: no-repeat ;
+    background-attachment: fixed;
+    /* border:0.5rem outset pink; */
+    
+}
+.nav a{
+    margin: 25px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+}
+
+ ul li{
+  margin-top:20px ;
+    list-style:none; 
+    border-left:2px solid black;
+    display:inline-block;
+    padding :0 30px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-family:arvo;
+ }
+
+ li a{
+    color:black;
+
+ }
+ li a:hover{
+    color:black;
+
+ }
+
+ li :hover{
+    cursor:pointer;
+ }
+
+ ul li ul{
+    visibility: hidden;
+     opacity: 0;
+    position:absolute;
+    padding-left: 0;
+    left:0;
+    display:none;
+    background-color:#b9f1f6; 
+ }
+ ul li:hover>ul,
+ ul li ul:hover{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    min-width: 200px;
+    text-align: left;
+    padding-top: 20px;
+    box-shadow: 0px 3px 5px -1px #ccc;
+ }
+
+ ul li ul li{
+    clear: both;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    border-style: none;
+ }
+ ul li ul li a:hover{
+    padding-left: 10px;
+    border-left: 2px solid black;
+ }
+ a {
+    text-decoration: none;
+    &:hover {
+        color: #3CA0E7;
+    }
+}
+ul li ul li a { transition: all 0.5s ease; }
+.card {
+    /* background-color: white; */
+    border: 1px solid #333;
+    border-radius: .5rem;
+    padding: .5rem;
+    /* width: 1300px;
+    height: 1300px; */
+    margin: 0 auto;
+    animation: fade 250ms ease-in-out forwards;
+   background-color: #E2C799;
+
+  
+    
+  }
+   
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    gap: .25em;
+    
+    
+  }
+  
+  .form-group:last-child {
+    margin: 0;
+  
+  }
+  
+  .form-group > label {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    padding: 10px;
+    margin: 10px;
+  
+  }
+  
+  .form-group > input {
+    border: 1px solid #333;
+    border-radius: .25em;
+    font-size: 1rem;
+    padding: 10px;
+    margin: 10px;
+    
+  }
+  
+  .step-title {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .card.active {
+    animation: slide 250ms 125ms ease-in-out both;
+    /* position: absolute; */
+ 
+  }
+  
+  .multi-step-form {
+    overflow: hidden;
+    position: relative;
+    padding-top: 57px;
+  
+  }
+  
+  .hide {
+    display: none;
+  }
+  button
+  {
+    padding: 10px;
+    cursor: pointer;
+    margin: 20px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 117px
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(.75);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  } 
+  
+footer
+{  
+    margin-top:auto ;
+    justify-content: end;
+    align-content:end;
+    display: grid;
+   position: relative;
+   bottom: -100px;
+   width: 100%;
+   height: auto;
+   padding: 10px;
+   background: #3ca0e7;
+  
+   
+}
+
+footer .container
+{
+    width: 100%;
+     display:grid; 
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-gap:20px;
+    justify-content: end;
+   align-content:end;
+   padding: 1px; 
+}
+
+footer ul li{
+    border:none;
+}
+footer .sec-aboutus{
+    width:350px;
+    text-transform:capitalize;
+}
+footer .sec-aboutus h2{
+    padding-left:50px;
+    margin-bottom:5px;
+}
+footer .sec-aboutus p{
+    text-align: center;
+    padding-right:30px;
+    padding-bottom:15px;
+}
+
+footer .container .sec-quicklinks{
+    border-right:2px solid black;
+    /* width: 200px; */
+}
+footer .container .sec-quicklinks li{
+    display: grid;
+    margin-top: 5px;
+    text-align: left;
+        padding: 5px;
+}
+footer .container .sec-quicklinks h2{
+    margin-top:5px;
+
+}
+footer .container .sec h2
+{
+    position:relative;
+    color:#333;
+    font-weight: 600;
+    margin-bottom: 15px;
+
+}
+
+footer .container .sec p
+{
+    color: #333;
+    text-transform: uppercase;
+    /* margin:10px; */
+
+}
+
+footer .container .sci
+{
+  margin-top:20px;
+  display: grid;
+  grid-template-columns: repeat(4,50px);
+}
+
+footer .container .sci li
+{
+    list-style: none;
+    padding-left: 85px;
+    size: 10px;
+}
+
+footer .container .sci li a
+{
+    display: grid;
+    width:360px;
+    height:36px;
+    
+    display:inline;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+footer .container .sci li a i
+{
+    color:#333;
+    font-size:20px;
+
+
+}
+footer .container .quicklinks 
+{
+    position: relative;
+
+}
+footer .container .quicklinks ul li
+{
+    list-style: none;
+    padding:30px;
+
+}
+footer .container .quicklinks ul li a
+{
+    color:black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+
+}
+
+footer .container .contact .info
+{
+    position: relative;
+
+}
+
+footer .container .contact .info li
+{
+   display: grid;
+   grid-template-columns: 30px 1fr;
+   margin-bottom: 16px; 
+}
+
+footer .container .contact .info  li span
+{
+   color:#555;
+   font-size:20 px;
+
+}
+
+footer .container .contact .info  li a
+{
+   color:#555;
+   text-decoration: none;
+   
+}
+
+footer .copyrightText
+{
+    margin-top:10px;
+    width:100%;
+    background: #96daff;
+    padding: 2px 1px 3px;
+    text-align:center;
+    color:#555;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+}

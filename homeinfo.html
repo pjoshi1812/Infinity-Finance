@@ -1,0 +1,299 @@
+
+<?php
+    require('connection.php');
+    if(isset($_POST['sbtn']))
+    {
+        $userid=$_POST['userid'];
+        $spassword=$_POST['spassword'];
+        $captcha=$_POST['captcha'];
+        $sql="INSERT INTO `loginform` ( `userid`, `spassword`, `captcha`, `datetime`) VALUES ( '$userid', '$spassword', '$captcha', current_timestamp())";
+         
+            if($con->query($sql)==true)
+            {
+                $insert=true;
+                header("location: homeform.html");
+
+                
+            }
+            else 
+                echo "Error:$sql<br>$con->error";
+            
+            $con->close();   
+    
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css file -->
+    <link rel="stylesheet" href="homeinfo.css">
+    <!-- fontawsome link -->
+    <script src="homeinfo.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ </head>
+<body>
+   <div class="header">
+    <!-- <i class="fas fa-rupee-sign"></i> -->
+        <div class="menu">
+        <div class="header">
+           <div class="logo">
+            <img src="logo.jpg" alt="logo" srcset=" ">
+           </div>
+        <div class="nav">
+            <ul>
+            <li> <a href="#">Home</a></li>
+
+            <li><a href="#">Popular Loans</a>
+                <ul class ="dropdown">
+                    <li><a href="#">Home Loan</a></li>
+                    <li><a href="#">Education Loan</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Loan Against Asset</a>
+                <ul class ="dropdown">
+                    <!-- <li><a href="#">Property Loan</a></li> -->
+                    <li><a href="#">Vehical Loan</a></li>
+                    <li><a href="#">Gold laon</a></li>
+                </ul>
+            </li>
+
+            <li> <a href="#">Other Loans</a>
+                <ul class ="dropdown">
+                    <!-- <li><a href="#">Business Loan</a></li> -->
+                    <li><a href="#">Health Loan</a></li>
+                    <li><a href="#">Business Loan</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="#">FAQ</a></li>
+
+            <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+   
+
+    <div class="hloaninfo">
+     <img src="hinfobg.jpeg" alt="" srcset="">
+     <div class="info">
+        
+        <form action="" method="post" class="">
+        <label for="userid" >Enter User ID:</label>
+        <input type="text" name="userid" id="user"  onkeyup="vaildname()" >
+        <span id="name-error"></span><br>
+        <label for="password" >Enter Password:</label>
+    
+        <input type="password" name="password" id="security" onkeyup="vaildpassword()">
+        <span id="password-error"></span><br>
+        <label for="captcha">Enter captcha code</label>
+        <input type="text" name="captcha" id="inputtext" >
+        <input type="text" name="captcha"readonly id="capt" >
+        <p style="padding: 10px; margin:10px; font-size:15px ;text-transform: uppercase">Captcha not visible <img src="refresh.jpg"   onclick="cap()" style="cursor: pointer;padding-left: 20px;width: 50px; height: 50px;"></p>
+        <a href="homeform.html">
+        </a>
+        <!-- <button id="btn" >Submit</button> -->
+        <button onclick="f1()"  id="btn" name="sbtn">submit</button>
+
+
+
+        
+     </form>
+     <div class="details">
+            <button onclick="myFunction1()">Home loan Information</button>
+            <div id="myDIV1" >
+                Infinity Fianance Bank realises the importance of a home of your own and offers Home Loans that can make building your dream living space easier.Infinity Bank gives Home Loans at attractive interest rates with easy repayment facilities. You can also enjoy Infinity Bank loan offers that make financing truly simple. 
+              </div>
+              <button onclick="myFunction2()">Home loan Eligibility</button>
+              <div id="myDIV2" style="display: none;">
+                Your home loan eligibility determines whether you qualify for borrowing a home loan or not. Infinity Fianance Bank conducts this mandatory housing loan eligibility check when you apply for a home loan. Based on your documentation, credit score and financial history the lending bank is able to analyse your financial status, creditworthiness and repayment capacity. A favourable impression that you leave on the lender increases your chances of getting a home loan. That’s why, before applying for a home loan it is important that you understand the eligibility criteria and make sure you fit teh bill.
+                </div>
+                <button onclick="myFunction3()">Required Documentation</button>
+            <div id="myDIV3" style="display: none;">
+                <ul style="display: flex;">
+                    <li>Phothograph</li>
+                    <li>Signature</li>
+                    <li>UDI and PAN Card</li>
+                    <li>Light Bills (3 months)</li>
+                    <li>Salary Statements(3 months)</li>
+                    <li>ITR Statements</li>
+                    <li>Rent Agreement</li>
+                    <li>Owner's Permission</li>
+
+
+                </ul>
+              </div>
+        
+    </div>
+    <!-- <div class="cal">
+        <h3 >Calculate Your EMI For Home Loan </h4>
+        <label for="amt" >Loan Amount</label>
+        <input type="number" name="amt" class="loan-amount" value="300000" style="margin-left:75px;"><br>
+        
+        <label for="int">Interest Rate</label>
+        <input type="number" name="int" class="interest-rate" value="8.90" style="margin-left:80px;"><br>
+        
+        <label for="period">Loan Term (in months)</label>
+        <input type="number" name="period" class="loan-tenure" value= "120" style="margin-left:0px;"><br>
+         
+        <input type="button" value="Calculate" style="margin-left: 100px;margin-top: 10px;"  class="calculate-btn">
+        <button onclick="Calculate()">Calculate</button> 
+        <div id="result">
+            <label for="amt1">EMI</label>
+            <input type="number" name="amt1"  class ="loan-emi"style="margin-left:175px;"><br>
+
+            <label for="tp">Total Payment</label>
+            <input type="number" name="tp"  class ="total-amount"style="margin-left:90px;"><br>
+
+            <label for="ip">Interest Payable</label>
+            <input type="number" name="ip"  class ="total-interest"style="margin-left:75px;">
+
+            <label for="pa">Princple Amount</label>
+            <input type="number" name="pa"  class ="pa"style="margin-left:70px;"><br>
+        </div>
+    </div> -->
+    <!-- <div class="loan-calculator">
+        <div class="top">
+          <h2>Loan Calculator</h2>
+  
+          <div class="form"></div>
+            <div class="group">
+              <div class="title">Amount</div>
+              <input type="text" value="30000" class="loan-amount" />
+            </div>
+  
+            <div class="group">
+              <div class="title">Interest Rate</div>
+              <input type="text" value="8.5" class="interest-rate" />
+            </div>
+  
+            <div class="group">
+              <div class="title">Tenure (in months)</div>
+              <input type="text" value="240" class="loan-tenure" />
+            </div>
+        </div>
+      
+  
+        <div class="result">
+          <div class="left">
+            <div class="loan-emi">
+              <h4>Loan EMI</h3>
+              <div class="value">123</div>
+            </div>
+  
+            <div class="total-interest">
+              <h4>Total Interest Payable</h3>
+              <div class="value">1234</div>
+            </div>
+  
+            <div class="total-amount">
+              <h4>Total Amount</h3>
+              <div class="value">12345</div>
+            </div>
+  
+            <button class="calculate-btn">Calculate</button>
+          </div>
+  
+          <div class="right">
+            <canvas id="myChart" width="400" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+   -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+    
+     <!-- </div>
+    </div> -->
+
+    <footer>
+        <div class="container">
+        <div class="sec-aboutus" style="border-right: 2px solid black;">
+            <h2>
+                <i class="fa-solid fa-infinity" style="color: #f4f5f5;"></i>
+               <b>Infinity Finance Bank</b> 
+            </h2><br>
+            <p>loan management bank
+            </p>
+            <ul class="sci">
+                <li><i class="fa-brands fa-square-facebook"></i></a></li>
+                <li><i class="fa-brands fa-twitter"></i></a></li>
+                <li><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="sec-quicklinks">
+            <h2>Support</h2>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="sec-quicklinks">
+            <h2>Loans</h2>
+            <ul>
+                <li><a href="#">Popular Loans</a></li>
+                <li><a href="#">Loan Against Asset</a></li>
+                <li><a href="#">Other Loans</a></li>
+            </ul>
+        </div>
+        <div class="sec-quicklinks1">
+            <h2>Contact us</h2>
+            <ul class="info1">
+                <li>
+                    <span><i class="fa-solid fa-phone" style="padding-left:55px;"></i></span><p style="text-align: center; padding-left:70px;">020-2332-445</p>
+                </li>
+                <li>
+                    <span><i class="fa-solid fa-envelope"></i></span><p style="text-align: center;">infinityfinancebank2003@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+
+
+        </div>
+        <div class="copyrightText">
+            <p>Copyright @2023 Infinity Finance.All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+</div>
+
+</body>
+<script>
+    function myFunction1() {
+  var x = document.getElementById("myDIV1");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+function myFunction2() {
+  var x = document.getElementById("myDIV2");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+function myFunction3() {
+  var x = document.getElementById("myDIV3");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+
+</script>
+</html>
