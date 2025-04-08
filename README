@@ -1,0 +1,41 @@
+# Infinity Finance – Bank Loan Management System
+
+Infinity Finance is a bank loan management web application designed to provide users with essential loan-related information, EMI calculations, and an admin dashboard for managing loan records.
+
+## 📚 Project Overview
+
+This project is created as part of the TY BBA-CA curriculum at MES Garware College of Commerce, affiliated with Savitribai Phule Pune University. The project focuses on implementing a loan management system using a web-based platform.
+
+## 💡 Features
+
+-  Loan Information: Get details about various loan types and eligibility criteria.
+-  EMI Calculator: Calculate monthly EMI based on principal amount and tenure.
+-  Loan Application Forms: Easy-to-use loan application for customers.
+-  Admin Panel: Insert/delete customer loan records and view counters for each loan type.
+-  Dashboard: Admin dashboard to track loan applications.
+-  FAQs and About Section: Learn more about the institution and general queries.
+
+##  Technologies Used
+
+| Component         | Technology             |
+|------------------|------------------------|
+| Front-end        | HTML, CSS, JavaScript  |
+| Back-end         | PHP                    |
+| Database         | MySQL                  |
+
+
+## 🔐 Admin Features
+
+- View customer applications
+- Manage (add/delete) loan entries
+- Monitor total applications per loan type
+
+## 📌 Limitations
+
+- The loan approval process is offline and involves personal verification, which is not part of the web application.
+
+## ✅ Conclusion
+
+The project successfully delivers a fully functional and user-friendly loan management system. It provides both informational and interactive tools to help users understand loan offerings and apply for them conveniently.
+
+
